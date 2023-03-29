@@ -1,0 +1,68 @@
+diff --git a/config.def.h b/config.def.h
+index 216620c..247e23b 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -5,11 +5,12 @@
+  *
+  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+  */
+-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
++static char *font = "FiraCode Nerd Font-12:style=Regular:antialias=true:autohint=true";
+ /* Spare fonts */
+ static char *font2[] = {
+-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
+-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
++  "JetBrainsMono Nerd Font-12:style=Regular:antialias=true:autohint=true",
++  "FontAwesome 6 Free-12:style=Regular:antialias=true:autohint=true",
++  "icomoon-12:style=Regular:antialias=true:autohint=true"
+ };
+ 
+ static int borderpx = 2;
+@@ -23,7 +24,7 @@ static int borderpx = 2;
+  * 5: value of shell in config.h
+  */
+ static char *shell = "/bin/sh";
+-char *utmp = NULL;
++char *utmp = "/usr/bin/utmp";
+ /* scroll program: to enable use a string like "scroll" */
+ char *scroll = NULL;
+ char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
+@@ -79,11 +80,11 @@ static unsigned int cursorthickness = 2;
+  *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
+  * 0: disable (render all U25XX glyphs normally from the font).
+  */
+-const int boxdraw = 0;
+-const int boxdraw_bold = 0;
++const int boxdraw = 1;
++const int boxdraw_bold = 1;
+ 
+ /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
+-const int boxdraw_braille = 0;
++const int boxdraw_braille = 1;
+ 
+ /*
+  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
+@@ -302,7 +303,7 @@ static Key key[] = {
+ 	{ XK_KP_Delete,     ControlMask,    "\033[3;5~",    +1,    0},
+ 	{ XK_KP_Delete,     ShiftMask,      "\033[2K",      -1,    0},
+ 	{ XK_KP_Delete,     ShiftMask,      "\033[3;2~",    +1,    0},
+-	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
++	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",       -1,    0},
+ 	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
+ 	{ XK_KP_Multiply,   XK_ANY_MOD,     "\033Oj",       +2,    0},
+ 	{ XK_KP_Add,        XK_ANY_MOD,     "\033Ok",       +2,    0},
+@@ -370,7 +371,7 @@ static Key key[] = {
+ 	{ XK_Delete,        ControlMask,    "\033[3;5~",    +1,    0},
+ 	{ XK_Delete,        ShiftMask,      "\033[2K",      -1,    0},
+ 	{ XK_Delete,        ShiftMask,      "\033[3;2~",    +1,    0},
+-	{ XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0},
++	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",       -1,    0},
+ 	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
+ 	{ XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
+ 	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
+@@ -519,4 +520,4 @@ static char ascii_printable[] =
+ #define UNDERCURL_SPIKY 1
+ #define UNDERCURL_CAPPED 2
+ // Active style
+-#define UNDERCURL_STYLE UNDERCURL_SPIKY
++#define UNDERCURL_STYLE UNDERCURL_CAPPED
